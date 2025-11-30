@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Muhammed Anzil | Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Icon Library (Remix Icon) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+  />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1d283a, #020617 55%, #000000);
+      color: #e5e7eb;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    /* Light mode */
+    body.light {
+      background: #e5e7eb;
+      color: #020617;
+    }
+
+    body.light .tagline {
+      color: #4b5563;
+    }
+
+    body.light header {
+      background: linear-gradient(
+        to bottom,
+        rgba(243, 244, 246, 0.96),
+        rgba(243, 244, 246, 0.82),
+        transparent
+      );
+    }
+
+    body.light a {
+      color: #2563eb;
+    }
+    body.light a:hover {
+      color: #1d4ed8;
+    }
+
+    body.light section {
+      background: #ffffff;
+      border-color: #d1d5db;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.15);
+    }
+    body.light h3 {
+      color: #020617;
+    }
+
+    body.light .pill {
+      background: #f9fafb;
+      border-color: #e5e7eb;
+      color: #111827;
+      box-shadow: 0 8px 20px rgba(148, 163, 184, 0.35);
+    }
+    body.light .pill i {
+      color: #2563eb;
+    }
+
+    body.light .contact-links a:hover {
+      background: #f9fafb;
+      border-color: #60a5fa;
+      box-shadow: 0 10px 26px rgba(37, 99, 235, 0.35);
+    }
+
+    body.light .skill-bar {
+      background: #e5e7eb;
+    }
+
+    body.light footer {
+      color: #6b7280;
+    }
+    body.light .footer-line {
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(148, 163, 184, 0.9),
+        transparent
+      );
+    }
+
+    /* Soft animated gradient blob */
+    .bg-blob {
+      position: fixed;
+      inset: auto -200px -200px auto;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle at center, rgba(56, 189, 248, 0.3), transparent 70%);
+      filter: blur(8px);
+      opacity: 0.7;
+      pointer-events: none;
+      animation: floatBlob 18s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes floatBlob {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(-40px, -40px) scale(1.1); }
+      100% { transform: translate(-80px, 10px) scale(1.05); }
+    }
+
+    a { color: #38bdf8; text-decoration: none; transition: color 0.2s ease; }
+    a:hover { text-decoration: underline; color: #7dd3fc; }
+
+    header {
+      padding: 2.2rem 1.5rem 1.2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      backdrop-filter: blur(16px);
+      z-index: 10;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    header h1 { 
+      font-size: 2.4rem; 
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .name-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 64, 175, 0.8));
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    header h2 { font-size: 1.05rem; font-weight: 400; color: #9ca3af; }
+    .tagline { color: #cbd5f5; max-width: 680px; font-size: 0.98rem; }
+
+    .nav-chips {
+      margin-top: 0.25rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+    }
+    .nav-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-chip:hover {
+      background: rgba(30, 64, 175, 0.9);
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .nav-chip i {
+      font-size: 1rem;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      cursor: pointer;
+      color: #f9fafb;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.8);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .theme-toggle i {
+      font-size: 1.2rem;
+    }
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(37, 99, 235, 0.7);
+      border-color: rgba(56, 189, 248, 0.8);
+    }
+
+    body.light .theme-toggle {
+      background: #ffffff;
+      color: #020617;
+      box-shadow: 0 10px 24px rgba(148, 163, 184, 0.6);
+      border-color: #d1d5db;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      animation: fadeIn 0.7s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      margin-bottom: 1.6rem;
+      padding: 1.1rem 1rem 1.2rem;
+      border-radius: 0.9rem;
+      border: 1px solid #1f2937;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96));
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      opacity: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%);
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+    section:hover::before {
+      opacity: 1;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+      color: #f9fafb;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+    }
+
+    h3 i {
+      font-size: 1.1rem;
+      color: #38bdf8;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .pill i {
+      font-size: 0.95rem;
+      color: #38bdf8;
+    }
+    .pill:hover {
+      transform: translateY(-1px) scale(1.01);
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+    }
+
+    .project {
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .project-title i {
+      font-size: 1rem;
+      color: #38bdf8;
+    }
+    .project-tech {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 0.15rem;
+    }
+
+    .sidebar section {
+      margin-bottom: 1.4rem;
+    }
+    .sidebar p, .sidebar li {
+      font-size: 0.9rem;
+    }
+
+    ul { padding-left: 1.1rem; }
+    li { margin-bottom: 0.4rem; }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      word-break: break-all;
+      padding: 0.25rem 0.4rem;
+      border-radius: 0.6rem;
+      border: 1px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .contact-links a i {
+      font-size: 1.05rem;
+    }
+    .contact-links a:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.55);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    /* Skill meters */
+    .skill-meters {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .skill-meter {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+    .skill-bar {
+      position: relative;
+      height: 6px;
+      border-radius: 999px;
+      background: #020617;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(to right, #38bdf8, #2563eb);
+      width: 0;
+      transition: width 1.2s ease-out;
+    }
+
+    footer {
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+      padding: 0 1.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    .footer-line {
+      height: 1px;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 0.6rem;
+      background: linear-gradient(to right, transparent, rgba(75, 85, 99, 0.9), transparent);
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.4rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.9), rgba(37, 99, 235, 0.9));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #0b1120;
+      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.7);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 20;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .scroll-top i {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding-top: 1.5rem;
+        padding-bottom: 0.7rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      main {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+      section {
+        padding: 0.95rem 0.9rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blob"></div>
+
+  <header>
+    <div class="header-row">
+      <h1>
+        <span class="name-icon">M</span>
+        Muhammed Anzil
+      </h1>
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="ri-moon-line"></i>
+      </button>
+    </div>
+
+    <h2>Frontend Learner · BCA Student</h2>
+    <p class="tagline">
+      Learning frontend development and building my fundamentals in HTML, CSS, JavaScript and programming languages like C, C++, Java and Python.
+    </p>
+
+    <!-- Quick navigation chips -->
+    <div class="nav-chips">
+      <a href="#about" class="nav-chip">
+        <i class="ri-user-line"></i> About
+      </a>
+      <a href="#projects" class="nav-chip">
+        <i class="ri-layout-masonry-line"></i> Projects
+      </a>
+      <a href="#skills" class="nav-chip">
+        <i class="ri-code-s-slash-line"></i> Skills
+      </a>
+      <a href="#learning" class="nav-chip">
+        <i class="ri-lightbulb-flash-line"></i> Learning
+      </a>
+      <a href="#education" class="nav-chip">
+        <i class="ri-graduation-cap-line"></i> Education
+      </a>
+      <a href="#contact" class="nav-chip">
+        <i class="ri-send-plane-line"></i> Contact
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Left column -->
+    <div>
+      <section id="about">
+        <h3><i class="ri-user-3-line"></i> About Me</h3>
+        <p>
+          I am a BCA student interested in frontend development. Right now I am focusing on learning
+          HTML, CSS and JavaScript, along with programming fundamentals in C, C++, Java and Python.
+          My goal is to build clean, simple websites and then move to more advanced frontend projects.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h3><i class="ri-layout-4-line"></i> Projects</h3>
+
+        <p>
+          I am currently learning and practicing frontend development. I haven’t built any major
+          projects yet, but I am working on:
+        </p>
+        <ul>
+          <li>Small practice landing pages and layouts</li>
+          <li>Experimenting with forms, buttons and responsive design</li>
+          <li>Understanding how to structure real-world portfolio projects</li>
+        </ul>
+
+        <!-- Example placeholder project cards -->
+        <div style="margin-top: 0.9rem;">
+          <div class="project">
+            <div class="project-title">
+              <i class="ri-window-line"></i>
+              Practice Portfolio Layout
+            </div>
+            <p class="project-tech">HTML · CSS · Responsive layout</p>
+          </div>
+          <div class="project">
+            <div class="project-title">
+              <i class="ri-smartphone-line"></i>
+              Simple Mobile Landing Page
+            </div>
+            <p class="project-tech">Mobile-first design · Flexbox</p>
+          </div>
+        </div>
+
+        <p style="margin-top:0.6rem; font-size:0.9rem; color:#9ca3af;">
+          As I complete real projects, I will add them here with live demo and GitHub links.
+        </p>
+      </section>
+    </div>
+
+    <!-- Right column (sidebar) -->
+    <div class="sidebar">
+      <section id="skills">
+        <h3><i class="ri-code-line"></i> Skills</h3>
+        <div class="pill-list">
+          <span class="pill"><i class="ri-html5-line"></i>HTML</span>
+          <span class="pill"><i class="ri-css3-line"></i>CSS (Learning)</span>
+          <span class="pill"><i class="ri-javascript-line"></i>JavaScript</span>
+          <span class="pill"><i class="ri-python-line"></i>Python</span>
+          <span class="pill"><i class="ri-terminal-box-line"></i>C</span>
+          <span class="pill"><i class="ri-terminal-box-line"></i>C++</span>
+          <span class="pill"><i class="ri-cup-line"></i>Java</span>
+        </div>
+
+        <!-- Animated skill progress bars -->
+        <div class="skill-meters">
+          <div class="skill-meter">
+            <div class="skill-label">
+              <span>HTML</span>
+              <span>Intermediate</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="70"></div>
+            </div>
+          </div>
+
+          <div class="skill-meter">
+            <div class="skill-label">
+              <span>CSS</span>
+              <span>Learning</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="55"></div>
+            </div>
+          </div>
+
+          <div class="skill-meter">
+            <div class="skill-label">
+              <span>JavaScript</span>
+              <span>Basics</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="45"></div>
+            </div>
+          </div>
+
+          <div class="skill-meter">
+            <div class="skill-label">
+              <span>Python</span>
+              <span>Basics</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="50"></div>
+            </div>
+          </div>
+
+          <div class="skill-meter">
+            <div class="skill-label">
+              <span>C / C++</span>
+              <span>Academic</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="40"></div>
+            </div>
+          </div>
+
+          <div class="skill-meter">
+            <div class="skill-label">
+              <span>Java</span>
+              <span>Academic</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill" data-level="40"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="learning">
+        <h3><i class="ri-lightbulb-line"></i> Currently Learning</h3>
+        <ul>
+          <li>Building responsive web pages</li>
+          <li>Better HTML & CSS structure</li>
+          <li>JavaScript basics and DOM manipulation</li>
+        </ul>
+      </section>
+
+      <section id="education">
+        <h3><i class="ri-graduation-cap-line"></i> Education</h3>
+        <p><strong>Bachelor of Computer Applications (BCA)</strong></p>
+        <p>WMO Imam Gazzali Arts & Science College, Kannur University</p>
+        <p>2023–2026</p>
+      </section>
+
+      <section id="contact">
+        <h3><i class="ri-send-plane-2-line"></i> Contact</h3>
+        <div class="contact-links">
+          <a href="mailto:ma6830487@gmail.com">
+            <i class="ri-mail-line"></i>
+            ma6830487@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+            <i class="ri-linkedin-box-line"></i>
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/anzil.muhammd?igsh=MWNocDkyeDU4aHlsMQ==" target="_blank">
+            <i class="ri-instagram-line"></i>
+            Instagram
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-line"></div>
+    © <span id="year"></span> Muhammed Anzil. All rights reserved.
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="ri-arrow-up-s-line"></i>
+  </button>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll to top behavior
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 180) {
+        scrollBtn.classList.add("visible");
+      } else {
+        scrollBtn.classList.remove("visible");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Theme toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+    const themeIcon = themeToggle.querySelector("i");
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      body.classList.add("light");
+      themeIcon.classList.remove("ri-moon-line");
+      themeIcon.classList.add("ri-sun-line");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isLight = body.classList.toggle("light");
+      if (isLight) {
+        themeIcon.classList.remove("ri-moon-line");
+        themeIcon.classList.add("ri-sun-line");
+        localStorage.setItem("theme", "light");
+      } else {
+        themeIcon.classList.remove("ri-sun-line");
+        themeIcon.classList.add("ri-moon-line");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Animate skill bars
+    const skillBars = document.querySelectorAll(".skill-bar-fill");
+    skillBars.forEach((bar, index) => {
+      const level = bar.dataset.level || 60;
+      setTimeout(() => {
+        bar.style.width = level + "%";
+      }, 300 + index * 150);
+    });
+  </script>
+</body>
+</html>
